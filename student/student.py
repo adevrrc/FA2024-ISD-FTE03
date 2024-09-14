@@ -4,6 +4,7 @@ from department.department import Department
 class Student:
     """Represents a student in a school.
     """
+
     def __init__(self, student_number: int, name: str, department: Department):
         """
         Initializes a new instance of the Student class.
@@ -14,23 +15,22 @@ class Student:
             department (Department): The name of the department in which student is enrolled.
 
         Raises:
-            ValueError: if any of the arguments are invalid.
+            ValueError: when the student_number is not an integer, the name contains
+                        no non-whitespace characters, or the department is not a
+                        Department value.
         """
-        if isinstance(student_number, int):
-            self.__student_number = student_number
-        else:
+        if not isinstance(student_number, int):
             raise ValueError("Student Number must be a whole number.")
 
-        if len(name.strip()) > 0:
-            self.__name = name
-        else:
+        if len(name.strip()) == 0:
             raise ValueError("Name cannot be blank.")
 
-        if isinstance(department, Department):
-            self.__department = department
-        else:
+        if not isinstance(department, Department):
             raise ValueError("Department must be one of the predefined Departments.")
 
+        self.__student_number = student_number
+        self.__name = name
+        self.__department = department
         self.__grade_point_average = random.uniform(0, 4.5)
 
     @property
