@@ -3,22 +3,28 @@ Description: Defines the Course class.
 Author: Damien Altenburg
 """
 from department.department import Department
+from student.student import Student
+from abc import ABC, abstractmethod
 
-class Course:
+class Course(ABC):
     """Represents a course at an educational institution.
     """
 
-    def __init__(self, name: str, department: Department, credit_hours: int):
+    @abstractmethod
+    def __init__(self, name: str, department: Department, credit_hours: int, capacity: int, current_enrollment: int):
         """Initializes a new instance of the Course class.
 
         Args:
             name (str): The name of the course.
             department (Department): The department the course is delivered.
             credit_hours (int): The number of credit hours.
+            capacity (int): The number of students that may enroll in the course.
+            current_enrollment (int): The number of students currently in the course.
 
         Raises:
-            ValueError: Raised when the name contains no non-whitespace characters or
-                        the credit_credit hours is less than or equal to zero.
+            ValueError: Raised when the name contains no non-whitespace characters,
+                        the credit_credit hours is less than or equal to zero,
+                        the capacity or current_enrollment is not an integer value.
             TypeError: Raised when the department or credit_hours is not the expected type.
         """
         if len(name.strip()) == 0:
@@ -30,9 +36,17 @@ class Course:
         if not isinstance(credit_hours, int):
             raise TypeError(f"The credit_hours object must be an int type.")
 
+        if not isinstance(capacity, int):
+            raise ValueError("Capacity must be numeric.")
+
+        if not isinstance(current_enrollment, int):
+            raise ValueError("Enrollment must be numeric.")
+
         self.__name = name
         self.__department = department
         self.__credit_hours = credit_hours
+        self._capacity = capacity
+        self._current_enrollment = current_enrollment
 
     @property
     def name(self) -> str:
@@ -60,6 +74,18 @@ class Course:
             The number of instructional hours for the course.
         """
         return self.__credit_hours
+
+    @abstractmethod
+    def enroll_student(self, student: Student) -> str:
+        """Enrolls a student into this course.
+
+        Args:
+            student (Student): The student to be enrolled into this course.
+
+        Returns:
+            Returns a confirmation message indicating the enrollment status.
+        """
+        pass
 
     def __str__(self) -> str:
         """Returns the "informal" or nicely printable string representation of the object.
