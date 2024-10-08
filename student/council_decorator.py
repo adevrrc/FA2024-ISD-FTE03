@@ -1,11 +1,21 @@
 from student.student_decorator import StudentDecorator
 
 class CouncilDecorator(StudentDecorator):
+    """Represents a student who participates in student council while studying.
+    """
     @property
     def grade_point_average(self) -> float:
-        grade_point_average = super().grade_point_average
+        """Returns the student's grade point average.
 
-        increases = {
+        The student receives an increases to their GPA dependant on their
+        current GPA.
+
+        Returns:
+            float: The student's grade point average.
+        """
+        grade_point_average = super().grade_point_average
+        
+        increases: dict[float, float] = {
             4.13: .35,
             3.67: .19,
             2.4: .04
@@ -14,7 +24,7 @@ class CouncilDecorator(StudentDecorator):
         increase = 0
 
         for average in increases:
-            if grade_point_average > average:
+            if grade_point_average >= average:
                 increase = increases[average]
                 break
 

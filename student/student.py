@@ -13,14 +13,14 @@ class Student(StudentDecoratable):
         Initializes a new instance of the Student class.
 
         Args:
-            student_number (int): The student's unique id.
             name (str): The name of the student.
-            department (Department): The name of the department in which student is enrolled.
+            department (Department): The name of the department in which student
+            is enrolled.
 
         Raises:
-            ValueError: when the student_number is not an integer, the name contains
-                        no non-whitespace characters, or the department is not a
-                        Department value.
+            ValueError: When the student_number is not an integer, the name 
+            contains no non-whitespace characters, or the department is not a
+            Department value.
         """
         if len(name.strip()) == 0:
             raise ValueError("Name cannot be blank.")
@@ -58,7 +58,8 @@ class Student(StudentDecoratable):
         """Gets the name of the department in which student is enrolled.
 
         Returns:
-            Department - A specific Department enum value associated with the Student instance.
+            Department - A specific Department enum value associated with the 
+            Student instance.
         """
         return self.__department
 
@@ -67,7 +68,8 @@ class Student(StudentDecoratable):
         """Gets the student's grade point average attribute.
 
         Returns:
-            float - The grade point average value associated with the Student instance.
+            float - The grade point average value associated with the Student 
+            instance.
         """
         return self.__grade_point_average
 
@@ -82,4 +84,5 @@ class Student(StudentDecoratable):
         # replace the _ with a blank.
         return (f"Student: {self.__student_number}"
                 f"\nName: {self.__name}"
-                f"\nDepartment: {self.__department.name.replace('_', ' ').title()}")
+                f"\nDepartment: "
+                f"{self.__department.name.replace('_', ' ').title()}")
