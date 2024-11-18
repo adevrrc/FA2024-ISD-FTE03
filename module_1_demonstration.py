@@ -1,3 +1,9 @@
+"""The module contains a program for demonstrating module 1 concepts.
+"""
+
+__version__ = "11.2024"
+__author__ = "Damien Altenburg"
+
 # 1. Import as necessary.
 from course.course import Course
 from department.department import Department

@@ -1,8 +1,13 @@
+"""The module defines the StudentDecorator class."""
+
+__version__ = "11.2024"
+__author__ = "Damien Altenburg"
+
 from student.student_decoratable import StudentDecoratable
 
 class StudentDecorator(StudentDecoratable):
-    """Represents the base decorator class for wrapping other Student type
-    objects.
+    """Represents the base decorator class for wrapping other Student 
+    type objects.
     """
     def __init__(self, student: StudentDecoratable):
         """Initializes a new instance of the StudentDecorator class.

@@ -1,3 +1,8 @@
+"""The module defines the Student class."""
+
+__version__ = "11.2024"
+__author__ = "Damien Altenburg"
+
 import random
 from department.department import Department
 
@@ -5,8 +10,7 @@ from patterns.singleton.singleton_student_manager import SingletonStudentManager
 from student.student_decoratable import StudentDecoratable
 
 class Student(StudentDecoratable):
-    """Represents a student in a school.
-    """
+    """Represents a student in a school."""
 
     def __init__(self, name: str, department: Department):
         """
@@ -14,13 +18,13 @@ class Student(StudentDecoratable):
 
         Args:
             name (str): The name of the student.
-            department (Department): The name of the department in which student
-            is enrolled.
+            department (Department): The name of the department in which 
+                student is enrolled.
 
         Raises:
-            ValueError: When the student_number is not an integer, the name 
-            contains no non-whitespace characters, or the department is not a
-            Department value.
+            ValueError: When the student_number is not an integer, the 
+                name contains no non-whitespace characters, or the 
+                department is not a Department value.
         """
         if len(name.strip()) == 0:
             raise ValueError("Name cannot be blank.")
@@ -40,7 +44,7 @@ class Student(StudentDecoratable):
         """Gets the student number.
 
         Returns:
-            int - The unique id associated with the Student instance.
+            int: The unique id associated with the Student instance.
         """
         return self.__student_number
 
@@ -49,7 +53,7 @@ class Student(StudentDecoratable):
         """Gets the student's name.
 
         Returns:
-            str - The name of the Student instance.
+            str: The name of the Student instance.
         """
         return self.__name
 
@@ -58,8 +62,8 @@ class Student(StudentDecoratable):
         """Gets the name of the department in which student is enrolled.
 
         Returns:
-            Department - A specific Department enum value associated with the 
-            Student instance.
+            Department: A specific Department enum value associated 
+                with the Student instance.
         """
         return self.__department
 
@@ -68,17 +72,16 @@ class Student(StudentDecoratable):
         """Gets the student's grade point average attribute.
 
         Returns:
-            float - The grade point average value associated with the Student 
-            instance.
+            float: The grade point average value associated with the 
+            Student instance.
         """
         return self.__grade_point_average
-
 
     def __str__(self) ->str:
         """Returns a string representation of the Student instance.
 
         Returns:
-            str - A string representation of the Student instance.
+            str: A string representation of the Student instance.
         """
         # Note: For departments containing more than one word
         # replace the _ with a blank.

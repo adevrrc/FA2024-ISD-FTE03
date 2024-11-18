@@ -1,20 +1,19 @@
-"""
-Description: Unit tests for the Course class.
-Author: ACE Faculty
-Modified by: {Student Name}
-Date: {Date}
-Usage: To execute all tests in the terminal execute
-the following command:
-    python -m unittest tests/test_course.py
-"""
-import unittest
+"""The module defines the TestCourse class.
 
+Usage: 
+    To execute all tests in the terminal execute the following command:
+    $ python -m unittest tests/test_course.py
+"""
+
+__version__ = "11.2024"
+__author__ = "Damien Altenburg"
+
+import unittest
 from course.course import Course
 from department.department import Department
 
-class Test_Course(unittest.TestCase):
-    """Tests for the Course class.
-    """
+class TestCourse(unittest.TestCase):
+    """Tests for the Course class."""
 
     def setUp(self):
         """Setup runs AUTOMATICALLY before each test method and

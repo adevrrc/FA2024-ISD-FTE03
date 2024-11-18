@@ -1,3 +1,9 @@
+"""The module contains a classes for demonstrating module 2 concepts.
+"""
+
+__version__ = "11.2024"
+__author__ = "Damien Altenburg"
+
 from abc import ABC, abstractmethod
 from datetime import date, timedelta
 

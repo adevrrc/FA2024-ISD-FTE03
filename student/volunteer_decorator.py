@@ -1,8 +1,13 @@
+"""The module defines the VolunteerDecorator class."""
+
+__version__ = "11.2024"
+__author__ = "Damien Altenburg"
+
 from student.student_decorator import StudentDecorator
 
 class VolunteerDecorator(StudentDecorator):
-    """Represents a student who completes volunteer work related to their
-    studies.
+    """Represents a student who completes volunteer work related to 
+    their studies.
     """
     @property
     def grade_point_average(self) -> float:

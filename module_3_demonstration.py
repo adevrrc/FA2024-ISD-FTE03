@@ -1,7 +1,12 @@
+"""The module contains a program for demonstrating module 3 concepts.
+"""
+
+__version__ = "11.2024"
+__author__ = "Damien Altenburg"
+
 from student.student import Student
 from department.department import Department
 from course import *
-
 from patterns.singleton.singleton_student_manager import SingletonStudentManager
 from student.volunteer_decorator import VolunteerDecorator
 from student.council_decorator import CouncilDecorator

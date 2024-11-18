@@ -1,11 +1,15 @@
+"""The module defines the LabCourse class."""
+
+__version__ = "11.2024"
+__author__ = "Damien Altenburg"
+
 from course.course import Course
 from department.department import Department
 from student.student import Student
 import math
 
 class LabCourse(Course):
-    """Represents a course delivered in a lab.
-    """
+    """Represents a course delivered in a lab."""
 
     def __init__(self, name: str, department: Department, credit_hours: int,
                  capacity: int, current_enrollment: int, lab_equipment: str):
@@ -13,18 +17,24 @@ class LabCourse(Course):
 
         Args:
             name (str): The name of the course.
-            department (Department): The department the course is delivered.
+            department (Department): The department the course is 
+                delivered.
             credit_hours (int): The number of credit hours.
-            capacity (int): The number of students that may enroll in the course.
-            current_enrollment (int): The number of students currently in the course.
-            lab_equipment (str): The lab equipment required for the course.
+            capacity (int): The number of students that may enroll in 
+                the course.
+            current_enrollment (int): The number of students currently 
+                in the course.
+            lab_equipment (str): The lab equipment required for the 
+                course.
 
         Raises:
-            ValueError: Raised when the name contains no non-whitespace characters,
-                        the credit_credit hours is less than or equal to zero,
-                        the capacity or current_enrollment is not an integer value, or
-                        the lecture_hall is contains no non-whitespace characters.
-            TypeError: Raised when the department or credit_hours is not the expected type.
+            ValueError: Raised when the name contains no non-whitespace 
+                characters, the credit_credit hours is less than or 
+                equal to zero, the capacity or current_enrollment is 
+                not an integer value, or the lecture_hall is contains 
+                no non-whitespace characters.
+            TypeError: Raised when the department or credit_hours is 
+                not the expected type.
         """
         super().__init__(name, department, credit_hours, capacity, current_enrollment)
 
@@ -37,10 +47,12 @@ class LabCourse(Course):
         """Enrolls a student into this course.
 
         Args:
-            student (Student): The student to be enrolled into this course.
+            student (Student): The student to be enrolled into this 
+                course.
 
         Returns:
-            Returns a confirmation message indicating the enrollment status.
+            Returns a confirmation message indicating the enrollment 
+            status.
         """
         confirmation_message = (
             f"{student.name} has NOT been enrolled in lab: "
@@ -56,8 +68,11 @@ class LabCourse(Course):
         return confirmation_message
 
     def __str__(self)-> str:
-        """Returns the "informal" or nicely printable string representation of the object.
+        """Returns the "informal" or nicely printable string 
+        representation of the object.
 
         Returns:
-            The "informal" or nicely printable string representation of the object."""
+            The "informal" or nicely printable string representation 
+            of the object.
+        """
         return super().__str__() + f"\nLab Equipment: {self.__lab_equipment}"

@@ -1,14 +1,20 @@
+"""The module defines the CouncilDecorator class."""
+
+__version__ = "11.2024"
+__author__ = "Damien Altenburg"
+
 from student.student_decorator import StudentDecorator
 
 class CouncilDecorator(StudentDecorator):
-    """Represents a student who participates in student council while studying.
+    """Represents a student who participates in student council while 
+    studying.
     """
     @property
     def grade_point_average(self) -> float:
         """Returns the student's grade point average.
 
-        The student receives an increases to their GPA dependant on their
-        current GPA.
+        The student receives an increases to their GPA dependant on 
+        their current GPA.
 
         Returns:
             float: The student's grade point average.

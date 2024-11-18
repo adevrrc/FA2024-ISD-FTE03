@@ -1,8 +1,13 @@
+"""The module defines the StudentDecoratable class."""
+
+__version__ = "11.2024"
+__author__ = "Damien Altenburg"
+
 from abc import ABC, abstractmethod
 
 class StudentDecoratable(ABC):
-    """This interface imposes the ability to retrieve the grade point average
-    on the objects of each class that implement it.
+    """This interface imposes the ability to retrieve the grade point 
+    average on the objects of each class that implement it.
     """
     @abstractmethod
     def grade_point_average(self) -> float:

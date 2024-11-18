@@ -1,16 +1,15 @@
+"""The module defines the TestCourse class.
+
+Usage: 
+    To execute all tests in the terminal execute the following command:
+    $ python -m unittest tests/test_lecture_course.py
 """
-Description: Unit tests for the LectureCourse class.
-Author: ACE Faculty
-Modified by: Damien Altenburg
-Date: 2024-9-15
-Usage: To execute all tests in the terminal execute
-the following command:
-    python -m unittest tests/test_lecture_course.py
-"""
+
+__version__ = "11.2024"
+__author__ = "Damien Altenburg"
+
 import unittest
-
 from course.lecture_course import LectureCourse
-
 from department.department import Department
 from student.student import Student
 
