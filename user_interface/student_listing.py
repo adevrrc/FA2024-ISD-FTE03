@@ -44,7 +44,7 @@ class StudentListing(Listing):
 
         self.student_table.resizeColumnsToContents()
 
-        self.student_table.cellClicked.connect(self.__on_select_student)   
+        self.student_table.cellClicked.connect(self.__on_select_student)
     
     @Slot(int, int)
     def __on_select_student(self, row: int, column: int):
@@ -62,6 +62,8 @@ class StudentListing(Listing):
 
         window = GradePointAverageCalculator(student_number, name)
 
+        window.new_gpa.connect(self.__update_gpa)
+
         window.exec_()
 
     def __update_gpa(self, student_number: str, gpa: float):
@@ -73,4 +75,6 @@ class StudentListing(Listing):
             student_number (str): The impacted student number.
             gpa (float): The updated gpa value.
         """
-        pass
+        for row in range(self.student_table.rowCount()):
+            if self.student_table.item(row, 0).text() == student_number:
+                self.student_table.item(row, 2).setText(f"{gpa:.2f}")
